@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="WeatherApp.css">
+</head>
+<body>
+    <div id="section1">
+        <div class="main-background">
+            <div class="container-fluid p-5">
+                <div class="row">
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9">
+                        <h1 class="pt-5 main-head">Weather App</h1>
+                        <h3>24/7 weather forecast</h3>
+                    </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3">
+                        <img src="https://res.cloudinary.com/dugs6k8rw/image/upload/v1723806288/weather_logo_vyv2vz.png" class="w-75 pt-5"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <p class="mt-3 para">Get detailed information about the weather of particular place of your choice.</p>
+                        <form class="mt-5" id="myForm">
+                            <div class="bg-info p-3 mb-4 input-box">
+                                <label for="loc">City/Location :</label>
+                                <input type="text" class="p-2 form-control input" id="loc"/>
+                            </div>
+                            <center>
+                                <button class="btn btn-success but" type="submit" onclick="display('section2')">Submit</button>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="section2">
+        <div id="background-2" class="background">
+            <div class="container-fluid p-5">
+                <div class="row" id="first">
+                    <div class="col-10 col-sm-10  col-md-10 col-lg-10">
+                        <h5 id="results" class="mt-4" style="font-family: 'Roboto';font-size: 27px;"></h5>
+                        <h4 style="font-family: 'Roboto';font-weight: bold;font-size: 37px;">Now</h4>
+                        <div class="d-flex flex-row justify-content-start">
+                            <div>
+                                <h1 id="temp" style="font-weight: bold;font-family: 'Roboto';font-size: 77px;"></h1>
+                            </div>
+                            <div>
+                                <i class="fas fa-gender" style="font-size: 30px;"></i>                         
+                            </div>
+                            <div>
+                                <img class="w-75" id="image"/>
+                            </div>
+                        </div>
+                        <p id="high-low" style="font-family: 'Roboto';font-size: 27px;"></p>
+                    </div>
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-2">
+                        <p id="condition" class="mt-5" style="font-family: 'Roboto';font-size: 33px;"></p>
+                        <p id="feel" style="font-family: 'Roboto';font-size: 25px;"></p>
+                    </div>
+                </div><hr style="border:1px solid grey"/>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <p style="font-size: 35px;font-family: 'Roboto';" id="currCond">Current Conditions</p>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                        <div class="bg-box" style="font-weight: 500;font-size: 23px;" id="box-1">
+                            <p class="p-3">Wind</p>
+                            <center><img class="w-75" id="wind"/></center>
+                            <span id="wind_speed" class="pl-3" style="font-size: 25px;"></span><span> Mps</span>
+                            <p class="pl-3 pb-3" id="direction"></p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                        <div class="bg-box" style="font-weight: 500;font-size: 23px;" id="box-2">
+                            <p class="pl-3 pt-3">Humidity</p>
+                            <center><img id="humidity" class="w-50"/></center>
+                            <p id="humdty" class="pl-3" style="font-size: 25px;"></p>
+                            <p class="pl-3 pb-3">inPercentage</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                        <div class="bg-box" style="font-weight: 500;font-size: 23px;" id="box-3">
+                            <p class="p-3">Pressure</p>
+                            <center><img class="w-75" id="pressure"/></center>
+                            <p id="pres" class="pl-3" style="font-size: 25px;"></p>
+                            <p class="pl-3 pb-3">inHg</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                        <div class="bg-box" style="font-weight: 500;font-size: 23px;" id="box-4">
+                            <p class="p-3">Sea Level</p>
+                            <center><img src="https://res.cloudinary.com/dugs6k8rw/image/upload/v1724758275/Screenshot_2024-08-27_170035-removebg-preview_iakn1v.png" class="w-75"/></center>
+                            <p id="sea_lvl" class="pl-3" style="font-size: 25px;"></p>
+                            <p class="pl-3 pb-3">inHpa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="d-flex flex-row justify-content-start bg-box p-3" style="font-weight: 500;" id="box-5">
+                            <div class="mr-5 w-50">
+                                <p style="font-size: 35px;">Sunrise & Sunset</p>
+                                <h4 style="color:chocolate">Sunrise</h4>
+                                <p id="sunrise" style="font-size: 33px;"></p>
+                                <h4 style="color:chocolate">Sunset</h4>
+                                <p id="sunset" style="font-size: 33px;"></p>
+                            </div>
+                            <div class="ml-5">
+                                <h4>Dawn</h4>
+                                <img src="https://res.cloudinary.com/dugs6k8rw/image/upload/v1724496423/Screenshot__25_-removebg-preview_einspa.png" class="w-50"/>
+                                <h4>Dusk</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="WeatherApp.js"></script>
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>  
+</body>
+</html>
